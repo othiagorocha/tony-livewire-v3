@@ -17,7 +17,13 @@ class Tasks extends Component
     public function add()
     {
         $this->tasks[] = $this->task;
-        $this->task = '';
+        $this->reset('task');
+    }
+
+    public function remove($index)
+    {
+        unset($this->tasks[$index]);
+        $this->tasks = array_values($this->tasks);
     }
 
     public function render()
